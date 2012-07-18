@@ -3,6 +3,16 @@ micro-cache
 
 Simple memory cache for simple rotines. Great use to prevent IO.
 
+Sample
+------
+
+Sample using Django ORM
+
+    from microcache import MicroCache
+
+    microCache = MicroCache()
+    users = microCache.get('users', User.objects.all)
+
 
 Please help out
 ---------------
