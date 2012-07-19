@@ -3,7 +3,7 @@
 class MicroCache(object):
 
     def __init__(self):
-        self.colections = {}
+        self.collections = {}
 
     def __call__(self, *args, **kwargs):
         return self.get(*args, **kwargs)
@@ -13,24 +13,24 @@ class MicroCache(object):
 
     def get(self, key, value=None):
 
-        if not self.colections.has_key(key):
+        if not self.collections.has_key(key):
             if not value is None:
                 self.update(key, value)
             else:
                 return None
-        return self.colections[key]
+        return self.collections[key]
 
     def update(self, key, value):
         if hasattr(value, '__call__'):
-            self.colections[key] = value()
+            self.collections[key] = value()
         else:
-            self.colections[key] = value
+            self.collections[key] = value
 
     def remove(self, key):
-        del self.colections[key]
+        del self.collections[key]
 
     def close(self):
-        self.colections.clear()
+        self.collections.clear()
 
     def clear(self):
         self.close()
