@@ -50,6 +50,12 @@ class MyTestCase(unittest.TestCase):
         a = microCache('key', v)
         self.assertEqual('value', a)
 
+    def test_set(self):
+        microCache = MicroCache()
+        v = "value"
+        microCache.set("key", v)
+        self.assertEqual("value", microCache.get("key"))
+
 
 if __name__ == '__main__':
     unittest.main()
