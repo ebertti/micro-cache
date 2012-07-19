@@ -11,6 +11,12 @@ class MicroCache(object):
     def __getitem__(self, item):
         return self.get(item)
 
+    def set(self, key, value, timeout=None):
+        """
+        Timeout will not be used
+        """
+        self.collections[key] = value
+
     def get(self, key, value=None):
 
         if not self.collections.has_key(key):
